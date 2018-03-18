@@ -1,0 +1,17 @@
+rofi.color-enabled: true
+
+rofi.color-window: argb: bb111111, #881111, #ffffff
+rofi.color-normal: argb:00111111, #ffffff, argb:00111111, #551111, #ffffff
+rofi.color-active: argb:00555555, #ffffff, argb:00555555, #330000, #ffffff
+rofi.color-urgent: argb:00555555, #ffffff, argb:00555555, #330000, #ffffff
+
+rofi.separator-style:                solid
+rofi.font: System San Francisco Display 18
+rofi.padding: 2
+rofi.opacity: 0
+rofi.bw: 2
+rofi.lines: 5
+rofi.eh: 2
+rofi.hide-scrollbar: true
+rofi.fake-transparency: true
+rofi.terminal: xfce4-terminal

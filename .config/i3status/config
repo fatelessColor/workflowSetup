@@ -1,0 +1,110 @@
+general {
+	color_good = "#FF0000"
+        color_degraded = "#0000FF"
+	color_bad = "#888888"
+	output_format = "i3bar"
+        colors = true
+        interval = 1
+}
+
+order += "disk /"
+order += "wireless wlp1s0"
+order += "ethernet eth0"
+order += "battery 0"
+order += "volume master"
+order += "tztime local"
+
+volume capture {
+	align = "center"
+	format = "AUDIO: %volume"
+	format_muted = "SILENCE"
+	device = "Capture"
+	mixer = "PCM"
+        mixer_idx = 0
+	min_width = 88
+	separator_block_width = 30
+}
+
+volume master {
+	align = "center"
+	format = "AUDIO: %volume"
+	format_muted = "SILENCE"
+	device = "default"
+	mixer = "PCM"
+        mixer_idx = 0
+	min_width = 88
+	separator_block_width = 30
+}
+
+wireless wlan0 {
+        format_up = "ONLINE"
+        format_down = "OFFLINE"
+	separator_block_width = 30
+}
+wireless wlp1s0 {
+        format_up = "ONLINE"
+        format_down = "OFFLINE"
+	separator_block_width = 30
+}
+
+ethernet eth0 {
+        format_up = "ONLINE"
+        format_down = "OFFLINE"
+	separator_block_width = 30
+}
+
+battery 0 {
+        format = "%status %percentage - %remaining"
+	format_down = "No battery"
+        status_chr = "UP"
+        status_bat = "BAT"
+        status_unk = "UNK"
+        status_full = "FULL"
+        path = "/sys/class/power_supply/BAT%d/uevent"
+        low_threshold = 10
+	separator_block_width = 30
+}
+
+run_watch DHCP {
+        pidfile = "/var/run/dhclient*.pid"
+	separator_block_width = 30
+}
+
+run_watch VPNC {
+        # file containing the PID of a vpnc process
+        pidfile = "/var/run/vpnc/pid"
+	separator_block_width = 30
+}
+
+path_exists VPN {
+        # path exists when a VPN tunnel launched by nmcli/nm-applet is active
+        path = "/proc/sys/net/ipv4/conf/tun0"
+	separator_block_width = 30
+}
+
+tztime local {
+        format = "%d.%m.%Y   %H:%M:%S"
+	separator_block_width = 30
+}
+
+tztime berlin {
+        format = "%Y-%m-%d %H:%M:%S %Z"
+        timezone = "Europe/Berlin"
+	separator_block_width = 30
+}
+
+load {
+        format = "%5min"
+	separator_block_width = 30
+}
+
+cpu_temperature 0 {
+        format = "T: %degrees °C"
+        path = "/sys/devices/platform/coretemp.0/temp1_input"
+	separator_block_width = 30
+}
+
+disk "/" {
+        format = "%free / %total"
+	separator_block_width = 30
+}

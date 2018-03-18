@@ -1,5 +1,5 @@
 build-essential 
 cmake
 python-dev 
+python2.4
 python3-dev
-vim
